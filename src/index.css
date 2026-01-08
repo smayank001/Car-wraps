@@ -1,0 +1,310 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Premium Car Wrapping & Signage Design System
+   Dark automotive aesthetic with metallic accents
+   Typography: Times New Roman - made modern & bold
+*/
+
+/* @import url('https://fonts.googleapis.com/css2?family=Times+New+Roman&display=swap'); */
+
+@layer base {
+  :root {
+    /* Core Dark Theme */
+    --background: 0 0% 5%;
+    --foreground: 0 0% 95%;
+
+    /* Cards & Surfaces */
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 95%;
+    --card-hover: 0 0% 12%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 95%;
+
+    /* Primary - Crimson Red */
+    --primary: 0 85% 50%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 0 85% 60%;
+
+    /* Secondary - Charcoal */
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 90%;
+
+    /* Muted - Dark Gray */
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 60%;
+
+    /* Accent - Metallic Gold */
+    --accent: 45 80% 55%;
+    --accent-foreground: 0 0% 5%;
+
+    /* Utility Colors */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 0 0% 18%;
+    --input: 0 0% 15%;
+    --ring: 0 85% 50%;
+
+    --radius: 0.25rem;
+
+    /* Custom Gradients */
+    --gradient-dark: linear-gradient(180deg, hsl(0 0% 5%) 0%, hsl(0 0% 10%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 10%) 0%, hsl(0 0% 6%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 3%) 0%, hsl(0 0% 8%) 50%, hsl(0 0% 5%) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(0 85% 45%) 0%, hsl(0 85% 55%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(45 80% 45%) 0%, hsl(45 80% 60%) 100%);
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 30px rgba(0, 0, 0, 0.5);
+    --shadow-glow: 0 0 40px rgba(220, 38, 38, 0.3);
+    --shadow-gold: 0 0 30px rgba(212, 175, 55, 0.2);
+
+    /* Sidebar (dark version) */
+    --sidebar-background: 0 0% 6%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 0 85% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 0 0% 90%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 0 85% 50%;
+  }
+
+  .dark {
+    /* Same as root - dark by default */
+    --background: 0 0% 5%;
+    --foreground: 0 0% 95%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  /* Premium Typography Utilities */
+  .heading-display {
+    @apply uppercase tracking-[0.15em] font-bold;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  .heading-hero {
+    @apply text-5xl md:text-7xl lg:text-8xl uppercase tracking-[0.08em] font-bold leading-[0.95];
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  .heading-section {
+    @apply text-3xl md:text-4xl lg:text-5xl uppercase tracking-[0.1em] font-bold;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  .heading-card {
+    @apply text-xl md:text-2xl uppercase tracking-[0.08em] font-bold;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  .body-premium {
+    @apply text-base md:text-lg leading-relaxed tracking-wide;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  .label-premium {
+    @apply text-xs md:text-sm uppercase tracking-[0.2em] font-medium;
+    font-family: 'Times New Roman', Times, serif;
+  }
+}
+
+@layer components {
+  /* Premium Button Styles */
+  .btn-hero-primary {
+    @apply inline-flex items-center justify-center px-8 py-4 text-sm uppercase tracking-[0.2em] font-bold;
+    @apply bg-primary text-primary-foreground;
+    @apply border-2 border-primary;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:bg-transparent hover:text-primary;
+    @apply shadow-lg hover:shadow-glow;
+  }
+
+  .btn-hero-secondary {
+    @apply inline-flex items-center justify-center px-8 py-4 text-sm uppercase tracking-[0.2em] font-bold;
+    @apply bg-transparent text-foreground;
+    @apply border-2 border-foreground/30;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:border-accent hover:text-accent;
+  }
+
+  /* Service Card */
+  .service-card {
+    @apply relative overflow-hidden bg-card border border-border/50;
+    @apply transition-all duration-500 ease-out;
+    @apply hover:border-primary/50 hover:shadow-glow;
+  }
+
+  .service-card::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-t from-background/90 via-background/50 to-transparent;
+    @apply opacity-0 transition-opacity duration-500;
+  }
+
+  .service-card:hover::before {
+    @apply opacity-100;
+  }
+
+  /* Work Showcase Card */
+  .showcase-card {
+    @apply relative overflow-hidden cursor-pointer;
+    @apply transition-all duration-500 ease-out;
+  }
+
+  .showcase-card img {
+    @apply transition-transform duration-700 ease-out;
+  }
+
+  .showcase-card:hover img {
+    @apply scale-110;
+  }
+
+  .showcase-card::after {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent;
+    @apply opacity-60 transition-opacity duration-500;
+  }
+
+  .showcase-card:hover::after {
+    @apply opacity-90;
+  }
+
+  /* Trust Badge */
+  .trust-badge {
+    @apply flex flex-col items-center text-center p-6;
+    @apply border-r border-border/30 last:border-r-0;
+  }
+
+  /* Diagonal Section Overlay */
+  .diagonal-overlay {
+    @apply absolute inset-0;
+    background: linear-gradient(
+      135deg,
+      hsl(0 0% 0% / 0.7) 0%,
+      hsl(0 0% 0% / 0.4) 50%,
+      hsl(0 0% 0% / 0.7) 100%
+    );
+  }
+
+  /* Process Step */
+  .process-step {
+    @apply relative flex flex-col items-center text-center p-8;
+  }
+
+  .process-step::after {
+    content: '';
+    @apply absolute top-12 -right-1/2 w-full h-px bg-gradient-to-r from-primary/50 to-transparent;
+    @apply hidden lg:block last:hidden;
+  }
+
+  /* CTA Section */
+  .cta-gradient {
+    background: linear-gradient(
+      135deg,
+      hsl(0 85% 25%) 0%,
+      hsl(0 85% 35%) 50%,
+      hsl(0 85% 25%) 100%
+    );
+  }
+
+  /* Metallic Text Effect */
+  .text-metallic {
+    background: linear-gradient(
+      135deg,
+      hsl(0 0% 70%) 0%,
+      hsl(0 0% 95%) 50%,
+      hsl(0 0% 70%) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Gold Accent */
+  .text-gold {
+    color: hsl(45 80% 55%);
+  }
+
+  .border-gold {
+    border-color: hsl(45 80% 55%);
+  }
+}
+
+@layer utilities {
+  /* Animation Utilities */
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+  }
+
+  .animate-slide-in {
+    animation: slideIn 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Stagger delays */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+
+  /* Shadow utilities */
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+}
