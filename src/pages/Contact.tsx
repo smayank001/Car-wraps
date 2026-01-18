@@ -8,17 +8,17 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Visit Us",
-    details: ["123 Industrial Boulevard", "Sacramento, CA 95814"],
+    details: ["62 South Park Blvd", "Greenwood, IN 46143"],
   },
   {
     icon: Phone,
     title: "Call Us",
-    details: ["(555) 123-4567", "(555) 987-6543"],
+    details: ["(317) 300-5900"],
   },
   {
     icon: Mail,
     title: "Email Us",
-    details: ["info@deolsigns.com", "quotes@deolsigns.com"],
+    details: ["deol.signs@gmail.com"],
   },
   {
     icon: Clock,
@@ -46,24 +46,30 @@ const Contact = () => {
     setFormData({ name: "", email: "", phone: "", service: "", message: "" });
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   return (
     <main className="min-h-screen bg-background">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-to-b from-background via-card to-background">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="text-center max-w-4xl mx-auto">
-            <p className="label-premium text-accent mb-4 animate-fade-up">Get In Touch</p>
+            <p className="label-premium text-accent mb-4 animate-fade-up">
+              Get In Touch
+            </p>
             <h1 className="heading-hero text-metallic mb-6 animate-fade-up delay-100">
               Contact Us
             </h1>
             <p className="body-premium text-muted-foreground max-w-2xl mx-auto animate-fade-up delay-200">
-              Ready to transform your brand? Reach out for a free consultation 
+              Ready to transform your brand? Reach out for a free consultation
               and quote on your next signage or wrap project.
             </p>
           </div>
@@ -77,11 +83,18 @@ const Contact = () => {
             {contactInfo.map((item, index) => (
               <div key={index} className="text-center p-6">
                 <div className="w-14 h-14 mx-auto mb-4 border border-primary/50 flex items-center justify-center">
-                  <item.icon className="w-6 h-6 text-primary" strokeWidth={1.5} />
+                  <item.icon
+                    className="w-6 h-6 text-primary"
+                    strokeWidth={1.5}
+                  />
                 </div>
-                <h3 className="heading-card text-foreground text-sm mb-2">{item.title}</h3>
+                <h3 className="heading-card text-foreground text-sm mb-2">
+                  {item.title}
+                </h3>
                 {item.details.map((detail, i) => (
-                  <p key={i} className="text-sm text-muted-foreground">{detail}</p>
+                  <p key={i} className="text-sm text-muted-foreground">
+                    {detail}
+                  </p>
                 ))}
               </div>
             ))}
@@ -99,7 +112,7 @@ const Contact = () => {
               <h2 className="heading-section text-metallic mb-8">
                 Request A Quote
               </h2>
-              
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -159,7 +172,9 @@ const Contact = () => {
                       <option value="">Select a service</option>
                       <option value="vehicle-wrap">Vehicle Wrap</option>
                       <option value="truck-graphics">Truck Graphics</option>
-                      <option value="channel-letters">Channel Letter Signs</option>
+                      <option value="channel-letters">
+                        Channel Letter Signs
+                      </option>
                       <option value="banners">Banners & Signage</option>
                       <option value="printing">Digital Printing</option>
                       <option value="apparel">T-Shirt Printing</option>
@@ -196,18 +211,20 @@ const Contact = () => {
             {/* Info Side */}
             <div className="flex flex-col justify-center">
               <div className="bg-card border border-border/50 p-8 lg:p-12">
-                <p className="label-premium text-accent mb-4">Why Work With Us</p>
+                <p className="label-premium text-accent mb-4">
+                  Why Work With Us
+                </p>
                 <h3 className="heading-section text-metallic text-2xl mb-6">
                   Premium Quality, Every Time
                 </h3>
-                
+
                 <div className="space-y-6 text-muted-foreground body-premium">
                   <p>
-                    We're committed to delivering exceptional results that exceed 
-                    expectations. From initial consultation to final installation, 
-                    our team ensures a seamless experience.
+                    We're committed to delivering exceptional results that
+                    exceed expectations. From initial consultation to final
+                    installation, our team ensures a seamless experience.
                   </p>
-                  
+
                   <ul className="space-y-4">
                     {[
                       "Free design consultation",
@@ -227,12 +244,14 @@ const Contact = () => {
 
                 {/* Quick Contact */}
                 <div className="mt-8 pt-8 border-t border-border/30">
-                  <p className="label-premium text-foreground mb-3">Need Immediate Help?</p>
-                  <a 
-                    href="tel:5551234567" 
+                  <p className="label-premium text-foreground mb-3">
+                    Need Immediate Help?
+                  </p>
+                  <a
+                    href="tel:317-300-5900"
                     className="text-2xl font-bold text-primary hover:text-accent transition-colors"
                   >
-                    (555) 123-4567
+                    (317) 300-5900
                   </a>
                 </div>
               </div>

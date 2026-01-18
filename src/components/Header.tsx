@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import logoImage from "@/assets/logo.jpg";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -20,16 +21,16 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 border-2 border-primary flex items-center justify-center transition-all duration-300 group-hover:bg-primary">
-              <span className="text-xl font-bold text-primary transition-colors group-hover:text-primary-foreground">D</span>
-            </div>
+            <img
+              src={logoImage}
+              alt=""
+              className="w-10 h-10 object-contain transition-all duration-300 group-hover:opacity-90"
+            />
             <div>
               <h1 className="text-sm uppercase tracking-[0.2em] font-bold text-foreground">
-                Deol <span className="text-primary">Signs</span>
+                <span className="text-primary"></span>
               </h1>
-              <p className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground">
-                & Wraps
-              </p>
+              <p className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground"></p>
             </div>
           </Link>
 
@@ -40,8 +41,8 @@ const Header = () => {
                 key={link.href}
                 to={link.href}
                 className={`text-xs uppercase tracking-[0.15em] font-bold transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-primary after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left ${
-                  location.pathname === link.href 
-                    ? "text-primary after:scale-x-100" 
+                  location.pathname === link.href
+                    ? "text-primary after:scale-x-100"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
@@ -63,7 +64,11 @@ const Header = () => {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="lg:hidden w-10 h-10 flex items-center justify-center text-foreground"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </button>
         </div>
 
@@ -77,8 +82,8 @@ const Header = () => {
                   to={link.href}
                   onClick={() => setMobileMenuOpen(false)}
                   className={`text-sm uppercase tracking-[0.15em] font-bold transition-colors py-2 ${
-                    location.pathname === link.href 
-                      ? "text-primary" 
+                    location.pathname === link.href
+                      ? "text-primary"
                       : "text-muted-foreground"
                   }`}
                 >

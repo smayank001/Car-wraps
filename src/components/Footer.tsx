@@ -1,11 +1,19 @@
 import { Link } from "react-router-dom";
-import { Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
+import {
+  Instagram,
+  Facebook,
+  Linkedin,
+  Youtube,
+  MessageCircle,
+} from "lucide-react";
+import logoImage from "@/assets/logo.jpg";
 
 const socialLinks = [
   { icon: Instagram, href: "#" },
   { icon: Facebook, href: "#" },
   { icon: Linkedin, href: "#" },
   { icon: Youtube, href: "#" },
+  { icon: MessageCircle, href: "https://wa.me/3173005900" },
 ];
 
 const quickLinks = [
@@ -32,9 +40,11 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <Link to="/" className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 border-2 border-primary flex items-center justify-center">
-                <span className="text-xl font-bold text-primary">D</span>
-              </div>
+              <img
+                src={logoImage}
+                alt="Deol Signs & Wraps Logo"
+                className="w-10 h-10 object-contain"
+              />
               <div>
                 <h3 className="text-sm uppercase tracking-[0.2em] font-bold text-foreground">
                   Deol <span className="text-primary">Signs</span>
@@ -101,22 +111,22 @@ const Footer = () => {
           <div>
             <h4 className="label-premium text-foreground mb-6">Contact</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li>123 Industrial Boulevard</li>
-              <li>Sacramento, CA 95814</li>
+              <li>62 South Park Blvd</li>
+              <li>Greenwood, IN 46143</li>
               <li className="pt-2">
                 <a
-                  href="tel:5551234567"
+                  href="tel:317-300-5900"
                   className="hover:text-primary transition-colors"
                 >
-                  (555) 123-4567
+                  (317) 300-5900
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:info@deolsigns.com"
+                  href="mailto:deol.signs@gmail.com"
                   className="hover:text-primary transition-colors"
                 >
-                  info@deolsigns.com
+                  deol.signs@gmail.com
                 </a>
               </li>
             </ul>
