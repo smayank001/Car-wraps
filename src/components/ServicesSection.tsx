@@ -52,12 +52,15 @@ const ServicesSection = () => {
       <div className="container mx-auto px-6 lg:px-12">
         {/* Marquee Section */}
         <div className="mb-16 overflow-hidden relative h-40">
-          <div className="absolute animate-marquee-ltr">
-            <img
-              src={logoImage}
-              alt="Deol Signs & Wraps"
-              className="h-32 w-auto object-contain opacity-90"
-            />
+          <div className="absolute flex items-center animate-marquee-ltr">
+            {[...Array(5)].map((_, index) => (
+              <img
+                key={index}
+                src={logoImage}
+                alt="Deol Signs & Wraps"
+                className="h-32 w-auto object-contain opacity-90 mx-16"
+              />
+            ))}
           </div>
         </div>
 

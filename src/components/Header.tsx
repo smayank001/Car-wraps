@@ -20,12 +20,14 @@ const Header = () => {
       <div className="container mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <img
-              src={logoImage}
-              alt=""
-              className="w-14 h-14 object-contain transition-all duration-300 group-hover:opacity-90"
-            />
+          <Link to="/" className="flex items-center gap-3 group relative">
+            <div className="relative">
+              <img
+                src={logoImage}
+                alt=""
+                className="w-16 h-16 object-contain transition-all duration-300 group-hover:opacity-90 -mt-2 -mb-2"
+              />
+            </div>
             <div>
               <h1 className="text-sm uppercase tracking-[0.2em] font-bold text-foreground">
                 <span className="text-primary"></span>
