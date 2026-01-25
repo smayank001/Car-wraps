@@ -1,9 +1,47 @@
 import heroCar from "@/assets/hero-car.jpg";
+import homeImage from "@/assets/home.jpeg";
 import { useNavigate } from "react-router-dom";
 import { scrollToElement } from "@/lib/scroll-utils";
+import { useEffect, useState } from "react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+  type CarouselApi,
+} from "@/components/ui/carousel";
 
 const HeroSection = () => {
   const navigate = useNavigate();
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+
+  // Auto-play functionality
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    const interval = setInterval(() => {
+      api.scrollNext();
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [api]);
+
+  // Update current slide index
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    setCurrent(api.selectedScrollSnap());
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
 
   const handleGetQuoteClick = () => {
     navigate("/contact");
@@ -25,16 +63,40 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <img
-          src={heroCar}
-          alt="Premium car wrap showcase"
-          className="w-full h-full object-cover object-center"
-        />
-        <div className="diagonal-overlay" />
-        {/* Additional gradient overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/60 to-transparent" />
+      {/* Hero Carousel */}
+      <div className="absolute inset-0 w-full h-full">
+        <Carousel
+          className="w-full h-full"
+          opts={{ loop: true }}
+          setApi={setApi}
+        >
+          <CarouselContent className="h-full">
+            <CarouselItem className="h-full">
+              <div className="relative w-full h-full">
+                <img
+                  src={homeImage}
+                  alt="Home showcase"
+                  className="w-full h-full object-cover object-center"
+                />
+                <div className="diagonal-overlay" />
+                <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/60 to-transparent" />
+              </div>
+            </CarouselItem>
+            <CarouselItem className="h-full">
+              <div className="relative w-full h-full">
+                <img
+                  src={heroCar}
+                  alt="Premium car wrap showcase"
+                  className="w-full h-full object-cover object-center"
+                />
+                <div className="diagonal-overlay" />
+                <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/60 to-transparent" />
+              </div>
+            </CarouselItem>
+          </CarouselContent>
+          <CarouselPrevious className="left-4" />
+          <CarouselNext className="right-4" />
+        </Carousel>
       </div>
 
       {/* Content */}

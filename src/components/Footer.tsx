@@ -42,16 +42,14 @@ const Footer = () => {
             <Link to="/" className="flex items-center gap-3 mb-6">
               <img
                 src={logoImage}
-                alt="Deol Signs & Wraps Logo"
+                alt=""
                 className="w-10 h-10 object-contain"
               />
               <div>
                 <h3 className="text-sm uppercase tracking-[0.2em] font-bold text-foreground">
-                  Deol <span className="text-primary">Signs</span>
+                  <span className="text-primary"></span>
                 </h3>
-                <p className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground">
-                  & Wraps
-                </p>
+                <p className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground"></p>
               </div>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed mb-6">
