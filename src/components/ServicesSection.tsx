@@ -50,10 +50,10 @@ const ServicesSection = () => {
   return (
     <section className="py-24 lg:py-32 bg-background">
       <div className="container mx-auto px-6 lg:px-12">
-        {/* Marquee Section */}
+        {/* Section Header */}
         <div className="mb-16 overflow-hidden relative h-40">
           <div className="absolute flex items-center animate-marquee-ltr">
-            {[...Array(5)].map((_, index) => (
+            {[...Array(100)].map((_, index) => (
               <img
                 key={index}
                 src={logoImage}
@@ -64,7 +64,6 @@ const ServicesSection = () => {
           </div>
         </div>
 
-        {/* Section Header */}
         <div className="text-center mb-16">
           <p className="label-premium text-accent mb-4">Our Expertise</p>
           <h2 className="heading-section text-metallic mb-6">What We Do</h2>

@@ -365,6 +365,6 @@
 }
 
 .animate-marquee-ltr {
-  animation: marqueeLTR 11s linear infinite;
+  animation: marqueeLTR 180s linear infinite;
 }
 
