@@ -24,7 +24,7 @@ const Header = () => {
             <img
               src={logoImage}
               alt=""
-              className="w-10 h-10 object-contain transition-all duration-300 group-hover:opacity-90"
+              className="w-14 h-14 object-contain transition-all duration-300 group-hover:opacity-90"
             />
             <div>
               <h1 className="text-sm uppercase tracking-[0.2em] font-bold text-foreground">

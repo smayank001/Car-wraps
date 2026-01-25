@@ -353,3 +353,18 @@
 .embla__dot.is-selected {
   @apply bg-white;
 }
+
+/* Marquee Animation */
+@keyframes marqueeLTR {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+.animate-marquee-ltr {
+  animation: marqueeLTR 6s linear infinite;
+}
+

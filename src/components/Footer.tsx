@@ -43,7 +43,7 @@ const Footer = () => {
               <img
                 src={logoImage}
                 alt=""
-                className="w-10 h-10 object-contain"
+                className="w-14 h-14 object-contain"
               />
               <div>
                 <h3 className="text-sm uppercase tracking-[0.2em] font-bold text-foreground">

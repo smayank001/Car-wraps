@@ -72,14 +72,21 @@ const HeroSection = () => {
         >
           <CarouselContent className="h-full">
             <CarouselItem className="h-full">
-              <div className="relative w-full h-full">
+              {/* <div className="relative w-full h-full">
                 <img
                   src={homeImage}
                   alt="Home showcase"
-                  className="w-full h-full object-cover object-center"
+                  className="w-half h-half object-cover object-center"
                 />
                 <div className="diagonal-overlay" />
                 <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/60 to-transparent" />
+              </div> */}
+              <div className="relative w-full h-[110vh] bg-black flex items-center justify-center overflow-hidden">
+                <img
+                  src={homeImage}
+                  alt="Home slider"
+                  className="w-full h-full object-contain opacity-60"
+                />
               </div>
             </CarouselItem>
             <CarouselItem className="h-full">
