@@ -5,11 +5,19 @@ import {
   Linkedin,
   Youtube,
   MessageCircle,
+  Music,
 } from "lucide-react";
 import logoImage from "@/assets/logo.jpg";
 
 const socialLinks = [
-  { icon: Instagram, href: "#" },
+  {
+    icon: Instagram,
+    href: "https://www.instagram.com/deolsignsandwraps?igsh=ZXZudGl3NTJxcjY0&utm_source=qr",
+  },
+  {
+    icon: Music,
+    href: "https://www.tiktok.com/@deolsigns?_r=1&_t=ZP-93QJnPmuQJz",
+  },
   { icon: Facebook, href: "#" },
   { icon: Linkedin, href: "#" },
   { icon: Youtube, href: "#" },
@@ -126,6 +134,14 @@ const Footer = () => {
                 >
                   deol.signs@gmail.com
                 </a>
+              </li>
+              <li className="pt-4">
+                <h5 className="font-bold text-foreground mb-2">Hours</h5>
+                <p>Monday-Friday: 9am - 6pm</p>
+                <p>Saturday: 10am - 6pm</p>
+                <p className="text-xs text-muted-foreground mt-2">
+                  Sunday: Closed
+                </p>
               </li>
             </ul>
           </div>

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import serviceTruckWrap from "@/assets/service-truck-wrap.jpg";
+import serviceTruckWrap from "@/assets/truck.jpeg";
 import serviceVinyl from "@/assets/service-vinyl.jpg";
 import servicePrinting from "@/assets/service-printing.jpg";
 import serviceSignage from "@/assets/service-signage.jpg";
