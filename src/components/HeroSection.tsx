@@ -72,16 +72,13 @@ const HeroSection = () => {
                 <div className="absolute inset-0 bg-black/50" />
 
                 {/* Left-aligned Content */}
-                <div className="absolute inset-0 flex flex-col items-start justify-center text-left px-6 md:px-12 pt-8 z-10">
-                  <p className="text-accent uppercase tracking-widest text-xs mb-4">
+                {/* Left-aligned Content - Positioned at bottom */}
+                <div className="absolute inset-0 flex flex-col items-start justify-end text-left px-6 md:px-12 pb-20 z-10">
+                  <h1 className="text-yellow-400 text-lg md:text-xl font-bold mb-1 max-w-lg leading-tight">
                     Premium Vehicle Wrapping & Signage
-                  </p>
-
-                  <h1 className="text-white text-4xl md:text-6xl font-bold mb-6 max-w-4xl">
-                    {/* Transform Your Brand Into Moving Art */}
                   </h1>
 
-                  <p className="text-gray-300 max-w-2xl mb-8">
+                  <p className="text-gray-200 text-[10px] md:text-xs max-w-md mb-8">
                     Industry-leading vehicle wraps, large-format printing, and
                     corporate signage that commands attention and drives real
                     business results.
