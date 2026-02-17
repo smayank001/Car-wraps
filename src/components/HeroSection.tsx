@@ -71,9 +71,9 @@ const HeroSection = () => {
                 {/* Dark Overlay */}
                 <div className="absolute inset-0 bg-black/50" />
 
-                {/* Centered Content */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 z-10">
-                  <p className="text-accent uppercase tracking-widest mb-4">
+                {/* Left-aligned Content */}
+                <div className="absolute inset-0 flex flex-col items-start justify-center text-left px-6 md:px-12 pt-8 z-10">
+                  <p className="text-accent uppercase tracking-widest text-xs mb-4">
                     Premium Vehicle Wrapping & Signage
                   </p>
 
