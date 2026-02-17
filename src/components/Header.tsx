@@ -69,10 +69,11 @@ const Header = () => {
                 <Link
                   key={link.href}
                   to={link.href}
-                  className={`text-xs uppercase tracking-[0.15em] font-bold transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-primary after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left ${location.pathname === link.href
-                    ? "text-primary after:scale-x-100"
-                    : "text-muted-foreground hover:text-foreground"
-                    }`}
+                  className={`text-xs uppercase tracking-[0.15em] font-bold transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-primary after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left ${
+                    location.pathname === link.href
+                      ? "text-primary after:scale-x-100"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
                 >
                   {link.label}
                 </Link>
@@ -180,10 +181,11 @@ const Header = () => {
                     key={link.href}
                     to={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`text-sm uppercase tracking-[0.15em] font-bold transition-colors py-2 ${location.pathname === link.href
-                      ? "text-primary"
-                      : "text-muted-foreground"
-                      }`}
+                    className={`text-sm uppercase tracking-[0.15em] font-bold transition-colors py-2 ${
+                      location.pathname === link.href
+                        ? "text-primary"
+                        : "text-muted-foreground"
+                    }`}
                   >
                     {link.label}
                   </Link>
@@ -224,17 +226,17 @@ const Header = () => {
         {/* Running Marquee Line - directly below navbar */}
         <div className="bg-primary py-1 overflow-hidden border-t border-border/30">
           <div className="flex animate-marquee whitespace-nowrap">
-            <span className="text-white text-[10px] md:text-xs font-bold uppercase tracking-widest mx-8">
+            <span className="text-black text-[10px] md:text-xs font-bold uppercase tracking-widest mx-8">
               ✨ Premium Vehicle Wrapping & Signage - Transform Your Brand Into
               Art ✨
             </span>
-            <span className="text-white text-[10px] md:text-xs font-bold uppercase tracking-widest mx-8">
+            <span className="text-black text-[10px] md:text-xs font-bold uppercase tracking-widest mx-8">
               ✨ Industry-Leading Quality & Service ✨
             </span>
-            <span className="text-white text-[10px] md:text-xs font-bold uppercase tracking-widest mx-8">
+            <span className="text-black text-[10px] md:text-xs font-bold uppercase tracking-widest mx-8">
               ✨ Professional Fleet Branding Solutions ✨
             </span>
-            <span className="text-white text-[10px] md:text-xs font-bold uppercase tracking-widest mx-8">
+            <span className="text-black text-[10px] md:text-xs font-bold uppercase tracking-widest mx-8">
               ✨ Custom Design & Installation ✨
             </span>
           </div>

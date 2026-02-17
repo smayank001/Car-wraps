@@ -1,3 +1,9 @@
+import homeImage from "@/assets/home.jpeg";
+import portfolioOne from "@/assets/portfolio-1.jpg";
+import truckImage from "@/assets/truck.jpeg";
+
+import { useNavigate } from "react-router-dom";
+import { scrollToElement } from "@/lib/scroll-utils";
 import { useEffect, useState } from "react";
 import {
   Carousel,
@@ -8,16 +14,12 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 
-// LEFT IMAGE (Original)
-import homeImage from "@/assets/home.jpeg";
-
-// RIGHT SLIDER MOCK IMAGES
-import slideOne from "@/assets/about-facility.jpg";
-import slideTwo from "@/assets/truck.jpeg";
-import slideThree from "@/assets/service-merch.jpg";
-
 const HeroSection = () => {
+  const navigate = useNavigate();
   const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+
+  const images = [homeImage, portfolioOne, truckImage];
 
   // Auto-play
   useEffect(() => {
@@ -25,60 +27,102 @@ const HeroSection = () => {
 
     const interval = setInterval(() => {
       api.scrollNext();
-    }, 4000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [api]);
 
+  // Update active dot
+  useEffect(() => {
+    if (!api) return;
+
+    setCurrent(api.selectedScrollSnap());
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
+
+  const handleViewWorkClick = () => {
+    if (window.location.pathname === "/" || window.location.pathname === "") {
+      scrollToElement("#featured-work");
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        scrollToElement("#featured-work");
+      }, 100);
+    }
+  };
+
   return (
-    <section className="h-screen flex overflow-hidden bg-black">
+    <section className="relative w-full h-screen overflow-hidden">
+      <Carousel setApi={setApi} opts={{ loop: true }} className="w-full h-full">
+        <CarouselContent>
+          {images.map((image, index) => (
+            <CarouselItem key={index}>
+              <div className="relative w-full h-screen">
+                {/* Background Image */}
+                <img
+                  src={image}
+                  alt="Hero Slide"
+                  className="w-full h-full object-cover"
+                />
 
-      {/* ================= LEFT SIDE (70%) IMAGE ONLY ================= */}
-      <div className="w-[70%] h-screen">
-        <img
-          src={homeImage}
-          alt="Hero Background"
-          className="w-full h-full object-cover"
-        />
-      </div>
+                {/* Dark Overlay */}
+                <div className="absolute inset-0 bg-black/50" />
 
-      {/* ================= RIGHT SIDE (30%) FIXED SLIDER ================= */}
-      <div className="w-[30%] h-screen relative overflow-hidden">
-        <Carousel
-          className="w-full h-full"
-          opts={{ loop: true }}
-          setApi={setApi}
-        >
-          <CarouselContent className="h-full">
-            <CarouselItem className="h-full min-w-full">
-              <img
-                src={slideOne}
-                alt="Slide One"
-                className="w-full h-screen object-cover"
-              />
+                {/* Centered Content */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 z-10">
+                  <p className="text-accent uppercase tracking-widest mb-4">
+                    Premium Vehicle Wrapping & Signage
+                  </p>
+
+                  <h1 className="text-white text-4xl md:text-6xl font-bold mb-6 max-w-4xl">
+                    {/* Transform Your Brand Into Moving Art */}
+                  </h1>
+
+                  <p className="text-gray-300 max-w-2xl mb-8">
+                    Industry-leading vehicle wraps, large-format printing, and
+                    corporate signage that commands attention and drives real
+                    business results.
+                  </p>
+
+                  <div className="flex gap-4 flex-wrap justify-center">
+                    {/* <button
+                      onClick={handleViewWorkClick}
+                      className="px-8 py-3 bg-white text-black font-semibold hover:bg-gray-200 transition"
+                    >
+                      View Our Work
+                    </button>
+
+                    <button
+                      onClick={() => navigate("/contact")}
+                      className="px-8 py-3 bg-red-600 text-white font-semibold hover:bg-red-700 transition"
+                    >
+                      Get a Quote
+                    </button> */}
+                  </div>
+                </div>
+              </div>
             </CarouselItem>
+          ))}
+        </CarouselContent>
 
-            <CarouselItem className="h-full min-w-full">
-              <img
-                src={slideTwo}
-                alt="Slide Two"
-                className="w-full h-screen object-cover"
-              />
-            </CarouselItem>
+        {/* Navigation Arrows */}
+        <CarouselPrevious className="left-6 text-white" />
+        <CarouselNext className="right-6 text-white" />
+      </Carousel>
 
-            <CarouselItem className="h-full min-w-full">
-              <img
-                src={slideThree}
-                alt="Slide Three"
-                className="w-full h-screen object-cover"
-              />
-            </CarouselItem>
-          </CarouselContent>
-
-          {/* Navigation Arrows */}
-          <CarouselPrevious className="left-3 text-white bg-black/40 hover:bg-black/70" />
-          <CarouselNext className="right-3 text-white bg-black/40 hover:bg-black/70" />
-        </Carousel>
+      {/* Pagination Dots */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-20">
+        {images.map((_, index) => (
+          <div
+            key={index}
+            className={`h-2 w-2 rounded-full transition-all ${
+              current === index ? "bg-white w-6" : "bg-white/50"
+            }`}
+          />
+        ))}
       </div>
     </section>
   );
