@@ -23,7 +23,7 @@ const HeroSection = () => {
       <img
         src={homeImage}
         alt="Home Showcase"
-        className="absolute inset-0 w-full h-full object-contain object-[center_100%]"
+        className="absolute inset-0 w-full h-full object-contain object-[center_50%]"
       />
 
       {/* Content */}
