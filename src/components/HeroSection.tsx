@@ -17,17 +17,17 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative w-full h-[calc(100vh-11rem)] flex items-center justify-center bg-black overflow-hidden">
+    <section className="relative w-full h-screen bg-black overflow-hidden">
       
-      {/* Properly Fitted Clear Image */}
+      {/* Full image slightly moved down */}
       <img
         src={homeImage}
         alt="Home Showcase"
-        className="w-full h-full object-contain"
+        className="absolute inset-0 w-full h-full object-contain object-[center_100%]"
       />
 
       {/* Content */}
-      <div className="absolute bottom-20 left-6 md:left-12 z-10">
+      <div className="relative z-10 flex flex-col justify-end h-full px-6 md:px-12 pb-20">
         <h1 className="text-yellow-400 text-xl md:text-3xl font-bold mb-3 max-w-xl">
           Premium Vehicle Wrapping & Signage
         </h1>
