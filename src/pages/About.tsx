@@ -41,7 +41,7 @@ const About = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-b from-background via-card to-background">
+      <section className="pt-44 pb-20 bg-gradient-to-b from-background via-card to-background">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="text-center max-w-4xl mx-auto">
             <p className="label-premium text-accent mb-4 animate-fade-up">Our Story</p>

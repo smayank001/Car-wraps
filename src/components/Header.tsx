@@ -82,29 +82,6 @@ const Header = () => {
 
             {/* Desktop Search + CTAs */}
             <div className="hidden md:flex items-center gap-3">
-              {/* Search Input */}
-              <form
-                className="relative"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  performSearch();
-                }}
-              >
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search..."
-                  className="w-36 lg:w-52 rounded-full bg-secondary/60 border border-border/40 px-4 py-1.5 text-[11px] text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/60 focus:border-primary/60"
-                />
-                <button
-                  type="submit"
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
-                >
-                  <Search className="w-4 h-4" />
-                </button>
-              </form>
-
               {/* CTAs */}
               <button
                 onClick={() => {
@@ -132,6 +109,29 @@ const Header = () => {
               >
                 Get a Quote
               </Link>
+
+              {/* Search Input */}
+              <form
+                className="relative ml-2"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  performSearch();
+                }}
+              >
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Search..."
+                  className="w-36 lg:w-48 rounded-full bg-secondary/60 border border-border/40 px-4 py-1.5 text-[11px] text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/60 focus:border-primary/60"
+                />
+                <button
+                  type="submit"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                >
+                  <Search className="w-4 h-4" />
+                </button>
+              </form>
             </div>
 
             {/* Mobile Menu Button */}
