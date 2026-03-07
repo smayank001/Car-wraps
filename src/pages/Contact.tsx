@@ -50,27 +50,30 @@ const Contact = () => {
       "other": "Other",
     };
 
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     const recipient = "deol.signs@gmail.com";
-    const subject = encodeURIComponent("New Quote Request from Website");
+    const subjectText = "New Quote Request from Website";
     const serviceLabel = formData.service ? serviceLabels[formData.service as keyof typeof serviceLabels] || formData.service : "Not specified";
     
-    const body = encodeURIComponent(
-      `Full Name: ${formData.name}\n` +
+    const bodyText = `Full Name: ${formData.name}\n` +
       `Email: ${formData.email}\n` +
       `Phone Number: ${formData.phone}\n` +
       `Service Interested In: ${serviceLabel}\n\n` +
-      `Project Details:\n${formData.message}`
-    );
+      `Project Details:\n${formData.message}`;
 
-    // Gmail compose URL
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipient}&su=${subject}&body=${body}`;
-    
-    // Redirect to Gmail
-    window.location.href = gmailUrl;
+    if (isMobile) {
+      // For mobile, mailto: is the most reliable way to open the default mail app (Gmail/Mail)
+      const mailtoUrl = `mailto:${recipient}?subject=${encodeURIComponent(subjectText)}&body=${encodeURIComponent(bodyText)}`;
+      window.location.href = mailtoUrl;
+    } else {
+      // For desktop, use the Gmail web compose URL as requested
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipient}&su=${encodeURIComponent(subjectText)}&body=${encodeURIComponent(bodyText)}`;
+      window.open(gmailUrl, "_blank");
+    }
 
     toast({
-      title: "Opening Gmail...",
-      description: "Please click 'Send' in the Gmail window to submit your message.",
+      title: isMobile ? "Opening Mail App..." : "Opening Gmail...",
+      description: "Please click 'Send' to submit your quote request.",
     });
 
     setFormData({ name: "", email: "", phone: "", service: "", message: "" });
