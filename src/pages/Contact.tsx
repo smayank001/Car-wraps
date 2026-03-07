@@ -39,10 +39,40 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    const serviceLabels: Record<string, string> = {
+      "vehicle-wrap": "Vehicle Wrap",
+      "truck-graphics": "Truck Graphics",
+      "channel-letters": "Channel Letter Signs",
+      "banners": "Banners & Signage",
+      "printing": "Digital Printing",
+      "apparel": "T-Shirt Printing",
+      "other": "Other",
+    };
+
+    const recipient = "deol.signs@gmail.com";
+    const subject = encodeURIComponent("New Quote Request from Website");
+    const serviceLabel = formData.service ? serviceLabels[formData.service as keyof typeof serviceLabels] || formData.service : "Not specified";
+    
+    const body = encodeURIComponent(
+      `Full Name: ${formData.name}\n` +
+      `Email: ${formData.email}\n` +
+      `Phone Number: ${formData.phone}\n` +
+      `Service Interested In: ${serviceLabel}\n\n` +
+      `Project Details:\n${formData.message}`
+    );
+
+    // Gmail compose URL
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipient}&su=${subject}&body=${body}`;
+    
+    // Redirect to Gmail
+    window.location.href = gmailUrl;
+
     toast({
-      title: "Message Sent!",
-      description: "We'll get back to you within 24 hours.",
+      title: "Opening Gmail...",
+      description: "Please click 'Send' in the Gmail window to submit your message.",
     });
+
     setFormData({ name: "", email: "", phone: "", service: "", message: "" });
   };
 
@@ -202,7 +232,7 @@ const Contact = () => {
                   type="submit"
                   className="btn-hero-primary w-full md:w-auto flex items-center justify-center gap-3"
                 >
-                  <span>Send Message</span>
+                  <span>Send Message / Request a Quote</span>
                   <Send className="w-4 h-4" />
                 </button>
               </form>

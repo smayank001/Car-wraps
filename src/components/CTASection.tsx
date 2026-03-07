@@ -21,12 +21,18 @@ const CTASection = () => {
           </p>
 
           <div className="flex flex-wrap justify-center gap-4">
-            <button className="inline-flex items-center justify-center px-10 py-5 text-sm uppercase tracking-[0.2em] font-bold bg-foreground text-background border-2 border-foreground transition-all duration-300 hover:bg-transparent hover:text-foreground">
+            <a 
+              href="/contact"
+              className="inline-flex items-center justify-center px-10 py-5 text-sm uppercase tracking-[0.2em] font-bold bg-foreground text-background border-2 border-foreground transition-all duration-300 hover:bg-transparent hover:text-foreground"
+            >
               Request a Quote
-            </button>
-            <button className="inline-flex items-center justify-center px-10 py-5 text-sm uppercase tracking-[0.2em] font-bold bg-transparent text-primary-foreground border-2 border-primary-foreground/50 transition-all duration-300 hover:border-primary-foreground hover:bg-primary-foreground/10">
+            </a>
+            <a 
+              href="tel:317-300-5900"
+              className="inline-flex items-center justify-center px-10 py-5 text-sm uppercase tracking-[0.2em] font-bold bg-transparent text-primary-foreground border-2 border-primary-foreground/50 transition-all duration-300 hover:border-primary-foreground hover:bg-primary-foreground/10"
+            >
               Call Us Now
-            </button>
+            </a>
           </div>
         </div>
       </div>
